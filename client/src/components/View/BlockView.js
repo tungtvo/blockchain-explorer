@@ -9,8 +9,13 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Table, Card, CardBody, CardTitle } from 'reactstrap';
 import { blockHashType, onCloseType } from '../types';
 import Modal from '../Styled/Modal';
+import Icon from '../../static/images/icon_white.svg';
 
 const styles = theme => ({
+	icon: {
+		width: '25px',
+		margin: '0px 5px 0 0'
+	},
 	cubeIcon: {
 		color: '#ffffff',
 		marginRight: 20
@@ -51,7 +56,8 @@ export class BlockView extends Component {
 					<div className={modalClasses.dialog}>
 						<Card className={modalClasses.card}>
 							<CardTitle className={modalClasses.title}>
-								<FontAwesome name="cube" className={classes.cubeIcon} />
+								{/* <FontAwesome name="cube" className={classes.cubeIcon} /> */}
+								<img src={Icon} className={classes.icon} alt="icon" />
 								Block Details
 								<button
 									type="button"

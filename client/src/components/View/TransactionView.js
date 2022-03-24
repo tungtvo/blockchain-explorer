@@ -10,6 +10,7 @@ import { Table, Card, CardBody, CardTitle } from 'reactstrap';
 import JSONTree from 'react-json-tree';
 import { transactionType } from '../types';
 import Modal from '../Styled/Modal';
+import Icon from '../../static/images/icon_white.svg';
 /* eslint-disable */
 const readTheme = {
 	base00: '#f3f3f3',
@@ -49,9 +50,9 @@ const writeTheme = {
 };
 /* eslint-enable */
 const styles = theme => ({
-	listIcon: {
-		color: '#ffffff',
-		marginRight: 20
+	icon: {
+		width: '25px',
+		margin: '0px 5px 0 0'
 	},
 	JSONtree: {
 		'& ul': {
@@ -82,7 +83,8 @@ export class TransactionView extends Component {
 					{modalClasses => (
 						<div>
 							<CardTitle className={modalClasses.title}>
-								<FontAwesome name="list-alt" className={classes.listIcon} />
+								{/* <FontAwesome name="list-alt" className={classes.listIcon} /> */}
+								<img src={Icon} className={classes.icon} alt="icon" />
 								Transaction Details
 								<button
 									type="button"

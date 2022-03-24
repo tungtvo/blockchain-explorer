@@ -14,26 +14,42 @@ const styles = theme => {
 		root: {
 			margin: '2%'
 		},
+		// footer: {
+		// 	backgroundColor: dark ? '#5e558e' : '#e8e8e8',
+		// 	color: dark ? '#ffffff' : undefined,
+		// 	textAlign: 'center',
+		// 	position: 'fixed',
+		// 	left: 0,
+		// 	right: 0,
+		// 	bottom: 0
+		// },
 		footer: {
-			backgroundColor: dark ? '#5e558e' : '#e8e8e8',
-			color: dark ? '#ffffff' : undefined,
 			textAlign: 'center',
-			position: 'fixed',
-			left: 0,
-			right: 0,
-			bottom: 0
+			marginTop: '30px',
+			marginBottom: '20px'
 		}
 	};
 };
 
 const FooterView = ({ classes }) => (
 	<div className={classes.root}>
-		<div>
+		{/* <div>
 			<div className={classes.footer}>
 				{'Hyperledger Explorer Client Version: '}
 				{clientJson.version}
 				&emsp;
 				{'Fabric Compatibility: '} {FabricVersion.map(v => v)}
+			</div>
+		</div> */}
+		<div>
+			<div className={classes.footer}>
+				{
+					'Cơ quan chủ quản: Tổng Công ty Giải pháp Doanh nghiệp Viettel – Chi nhánh Tập đoàn Công nghiệp – Viễn thông Quân đội'
+				}
+				<br></br>
+				{
+					'Địa chỉ: Số 1 đường Trần Hữu Dực, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Hà Nội, Việt Nam'
+				}
 			</div>
 		</div>
 	</div>

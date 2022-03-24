@@ -78,38 +78,38 @@ const styles = theme => {
 	};
 	return {
 		logo: {
-			width: 260,
+			width: 160,
 			height: 50,
 			'@media (max-width: 1415px) and (min-width: 990px)': {
-				width: 200,
+				width: 140,
 				height: 40
 			}
 		},
 		navbarHeader: {
-			backgroundColor: '#e8e8e8',
+			backgroundColor: '#DA3040',
 			...darkNavbar
 		},
 		tab: {
-			color: dark ? '#242036' : '#000000',
+			color: dark ? '##fff' : '#fff',
 			fontSize: '1.05rem',
 			fontWeight: 800,
 			height: 50,
 			margin: 10,
 			'&:hover': {
-				color: dark ? '#242036' : '#000000'
+				color: dark ? '#ec979f' : '#ec979f'
 			},
 			'@media (max-width: 1415px) and (min-width: 990px)': {
 				fontSize: '0.85rem'
 			}
 		},
 		activeTab: {
-			color: '#ffffff',
-			backgroundColor: dark ? '#453e68' : '#58c5c2',
+			color: '#DA3040',
+			backgroundColor: dark ? '#fff' : '#fff',
 			height: 60,
 			marginTop: 20,
 			padding: 10,
 			'&:hover': {
-				color: '#ffffff'
+				color: '#DA3040'
 			},
 			'@media (max-width: 1415px) and (min-width: 990px)': {
 				padding: '8%'
@@ -134,13 +134,14 @@ const styles = theme => {
 			}
 		},
 		bell: {
-			color: dark ? 'rgb(139, 143, 148)' : '#5f6164',
+			color: dark ? '#fff' : '#fff',
 			fontSize: '18pt',
-			margin: 8,
+			marginTop: 14,
 			float: 'none',
 			'&:hover': {
-				color: dark ? '#c1d7f0' : '#24272a'
-			}
+				color: dark ? '#ec979f' : '#ec979f'
+			},
+			cursor: 'pointer'
 		},
 		channel: {
 			width: 200,
@@ -174,13 +175,13 @@ const styles = theme => {
 			marginRight: -3
 		},
 		logoutIcon: {
-			color: dark ? 'rgb(139, 143, 148)' : '#5f6164',
+			color: dark ? '#fff' : '#fff',
 			fontSize: '18pt',
 			float: 'none',
 			'&:hover': {
-				color: dark ? '#c1d7f0' : '#24272a'
+				color: dark ? '#ec979f' : '#ec979f'
 			},
-			marginLeft: 5,
+			marginLeft: 20,
 			marginTop: 14,
 			cursor: 'pointer'
 		},
@@ -188,13 +189,13 @@ const styles = theme => {
 			marginRight: -3
 		},
 		userIcon: {
-			color: dark ? 'rgb(139, 143, 148)' : '#5f6164',
+			color: dark ? '#fff' : '#fff',
 			fontSize: '18pt',
 			float: 'none',
 			'&:hover': {
-				color: dark ? '#c1d7f0' : '#24272a'
+				color: dark ? '#ec979f' : '#ec979f'
 			},
-			marginLeft: 5,
+			marginLeft: 20,
 			marginTop: 14,
 			cursor: 'pointer'
 		},
@@ -226,7 +227,7 @@ export class HeaderView extends Component {
 	}
 
 	componentDidMount() {
-		const { channels: channelArr , currentChannel } = this.props;
+		const { channels: channelArr, currentChannel } = this.props;
 		const arr = [];
 		let selectedValue = {};
 		channelArr.forEach(element => {
@@ -537,12 +538,14 @@ export class HeaderView extends Component {
 										/>
 									</div>
 									{
-										<div className={classes.adminButton}>
+										<div
+											className={classes.adminButton}
+											onClick={() => this.handleDrawOpen('notifyDrawer')}
+										>
 											<FontAwesome
 												name="bell"
 												data-command="bell"
 												className={classes.bell}
-												onClick={() => this.handleDrawOpen('notifyDrawer')}
 											/>
 											<Badge badgeContent={notifyCount} color="primary" />
 										</div>
@@ -556,14 +559,14 @@ export class HeaderView extends Component {
                   onClick={() => this.handleDrawOpen('adminDrawer')}
                 />
               </div> */}
-									<div className={`${classes.adminButton} ${classes.themeSwitch}`}>
+									{/* <div className={`${classes.adminButton} ${classes.themeSwitch}`}>
 										<FontAwesome name="sun-o" className={classes.sunIcon} />
 										<Switch
 											onChange={() => this.handleThemeChange(mode)}
 											checked={dark}
 										/>
 										<FontAwesome name="moon-o" className={classes.moonIcon} />
-									</div>
+									</div> */}
 									<div className={classNames(classes.adminButton, classes.user)}>
 										<FontAwesome
 											name="user-plus"
@@ -574,7 +577,7 @@ export class HeaderView extends Component {
 									<div className={classNames(classes.adminButton, classes.logoutk)}>
 										<FontAwesome
 											name="sign-out"
-											className={classes.logout}
+											className={classes.logoutIcon}
 											onClick={() => this.logout()}
 										/>
 									</div>

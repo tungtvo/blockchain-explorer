@@ -18,6 +18,10 @@ import {
 	peerStatusType,
 	transactionByOrgType
 } from '../types';
+import IcBlock from '../../static/images/ic_block.svg';
+import IcTransaction from '../../static/images/ic_transaction.svg';
+import IcNode from '../../static/images/ic_node.svg';
+import IcChaincode from '../../static/images/ic_chaincode.svg';
 
 /* istanbul ignore next */
 const styles = theme => {
@@ -53,6 +57,26 @@ const styles = theme => {
 			fontSize: '18pt',
 			color: dark ? '#ffffff' : '#000000'
 		},
+		cardContainer: {
+			width: '90%',
+			height: '90%',
+			border: '1px solid',
+			margin: '8px auto',
+			borderRadius: '10px',
+			color: '#fff'
+		},
+		cardColor1: {
+			backgroundColor: '#D28715'
+		},
+		cardColor2: {
+			backgroundColor: '#2E9BCE'
+		},
+		cardColor3: {
+			backgroundColor: '#0F8E70'
+		},
+		cardColor4: {
+			backgroundColor: '#E85252'
+		},
 		vdivide: {
 			'&::after': {
 				borderRight: `2px ${dark ? 'rgb(40, 36, 61)' : '#dff1fe'} solid`,
@@ -66,23 +90,25 @@ const styles = theme => {
 		avatar: {
 			justifyContent: 'center',
 			marginLeft: '60%',
-			marginTop: '65%'
+			marginTop: '65%',
+			width: '50px',
+			height: '50px'
 		},
 		node: {
 			color: dark ? '#183a37' : '#21295c',
-			backgroundColor: dark ? 'rgb(104, 247, 235)' : '#858aa6'
+			backgroundColor: dark ? '#fff' : '#fff'
 		},
 		block: {
 			color: dark ? '#1f1a33' : '#004d6b',
-			backgroundColor: dark ? 'rgb(106, 156, 248)' : '#b9d6e1'
+			backgroundColor: dark ? '#fff' : '#fff'
 		},
 		chaincode: {
 			color: dark ? 'rgb(121, 83, 109)' : '#407b20',
-			backgroundColor: dark ? 'rgb(247, 205, 234)' : '#d0ecda'
+			backgroundColor: dark ? '#fff' : '#fff'
 		},
 		transaction: {
 			color: dark ? 'rgb(216, 142, 4)' : '#ffa686',
-			backgroundColor: dark ? 'rgb(252, 224, 174)' : '#ffeed8'
+			backgroundColor: dark ? '#fff' : '#fff'
 		},
 		section: {
 			height: 335,
@@ -182,56 +208,64 @@ export class DashboardView extends Component {
 						<Col sm="12">
 							<Card className={classes.blocks}>
 								<div className={`${classes.statistic} ${classes.vdivide}`}>
-									<Row>
-										<Col sm="4">
-											<Avatar className={`${classes.avatar} ${classes.block}`}>
-												<FontAwesome name="cube" />
-											</Avatar>
-										</Col>
-										<Col sm="4">
-											<h1 className={classes.count}>{dashStats.latestBlock}</h1>
-										</Col>
-									</Row>
-									BLOCKS
+									<div className={`${classes.cardContainer} ${classes.cardColor1}`}>
+										<Row>
+											<Col sm="4">
+												<Avatar className={`${classes.avatar} ${classes.block}`}>
+													<img src={IcBlock} className={classes.icCard} />
+												</Avatar>
+											</Col>
+											<Col sm="4">
+												<h1 className={classes.count}>{dashStats.latestBlock}</h1>
+											</Col>
+										</Row>
+										BLOCKS
+									</div>
 								</div>
 								<div className={`${classes.statistic} ${classes.vdivide}`}>
-									<Row>
-										<Col sm="4">
-											<Avatar className={`${classes.avatar} ${classes.transaction}`}>
-												<FontAwesome name="list-alt" />
-											</Avatar>
-										</Col>
-										<Col sm="4">
-											<h1 className={classes.count}>{dashStats.txCount}</h1>
-										</Col>
-									</Row>
-									TRANSACTIONS
+									<div className={`${classes.cardContainer} ${classes.cardColor2}`}>
+										<Row>
+											<Col sm="4">
+												<Avatar className={`${classes.avatar} ${classes.transaction}`}>
+													<img src={IcTransaction} className={classes.icCard} />
+												</Avatar>
+											</Col>
+											<Col sm="4">
+												<h1 className={classes.count}>{dashStats.txCount}</h1>
+											</Col>
+										</Row>
+										TRANSACTIONS
+									</div>
 								</div>
 								<div className={`${classes.statistic} ${classes.vdivide}`}>
-									<Row>
-										<Col sm="4">
-											<Avatar className={`${classes.avatar} ${classes.node}`}>
-												<FontAwesome name="users" />
-											</Avatar>
-										</Col>
-										<Col sm="4">
-											<h1 className={classes.count}>{dashStats.peerCount}</h1>
-										</Col>
-									</Row>
-									NODES
+									<div className={`${classes.cardContainer} ${classes.cardColor3}`}>
+										<Row>
+											<Col sm="4">
+												<Avatar className={`${classes.avatar} ${classes.node}`}>
+													<img src={IcNode} className={classes.icCard} />
+												</Avatar>
+											</Col>
+											<Col sm="4">
+												<h1 className={classes.count}>{dashStats.peerCount}</h1>
+											</Col>
+										</Row>
+										NODES
+									</div>
 								</div>
 								<div className={classes.statistic}>
-									<Row>
-										<Col sm="4">
-											<Avatar className={`${classes.avatar} ${classes.chaincode}`}>
-												<FontAwesome name="handshake-o" />
-											</Avatar>
-										</Col>
-										<Col sm="4">
-											<h1 className={classes.count}>{dashStats.chaincodeCount}</h1>
-										</Col>
-									</Row>
-									CHAINCODES
+									<div className={`${classes.cardContainer} ${classes.cardColor4}`}>
+										<Row>
+											<Col sm="4">
+												<Avatar className={`${classes.avatar} ${classes.chaincode}`}>
+													<img src={IcChaincode} className={classes.icCard} />
+												</Avatar>
+											</Col>
+											<Col sm="4">
+												<h1 className={classes.count}>{dashStats.chaincodeCount}</h1>
+											</Col>
+										</Row>
+										CHAINCODES
+									</div>
 								</div>
 							</Card>
 						</Col>

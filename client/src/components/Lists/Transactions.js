@@ -61,14 +61,24 @@ const styles = theme => {
 			opacity: 0.8,
 			margin: 'auto',
 			width: '100% !important',
-			'margin-bottom': '4px'
+			'margin-bottom': '4px',
+			color: '#DA3040',
+			backgroundColor: '#fff',
+			border: '1px solid #DA3040',
+			borderRadius: '3px',
+			'&:hover': {
+				backgroundColor: '#ec979f'
+			}
 		},
 		searchButton: {
 			opacity: 0.8,
 			margin: 'auto',
 			width: '100% !important',
-			backgroundColor: dark ? undefined : '#086108',
-			'margin-bottom': '4px'
+			backgroundColor: '#DA3040',
+			'margin-bottom': '4px',
+			'&:hover': {
+				backgroundColor: '#ec979f'
+			}
 		},
 		filterElement: {
 			textAlign: 'center',
@@ -357,10 +367,9 @@ export class Transactions extends Component {
 							}}
 						/>
 					</div>
-					<div className="col-md-2">
+					<div className="col-md-1">
 						<Button
 							className={classes.searchButton}
-							color="success"
 							disabled={this.state.err}
 							onClick={async () => {
 								await this.handleSearch();
@@ -372,7 +381,6 @@ export class Transactions extends Component {
 					<div className="col-md-1">
 						<Button
 							className={classes.filterButton}
-							color="primary"
 							onClick={() => {
 								this.handleClearSearch();
 							}}
@@ -380,10 +388,9 @@ export class Transactions extends Component {
 							Reset
 						</Button>
 					</div>
-					<div className="col-md-1">
+					<div className="col-md-2">
 						<Button
 							className={classes.filterButton}
-							color="secondary"
 							onClick={() => this.setState({ filtered: [], sorted: [] })}
 						>
 							Clear Filter

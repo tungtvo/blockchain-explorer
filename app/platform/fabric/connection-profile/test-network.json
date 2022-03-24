@@ -9,7 +9,7 @@
 			"password": "exploreradminpw"
 		},
 		"enableAuthentication": true,
-		"organization": "Org1MSP",
+		"organization": "org1nameMSP",
 		"connection": {
 			"timeout": {
 				"peer": {
@@ -20,9 +20,9 @@
 		}
 	},
 	"channels": {
-		"mychannel": {
+		"channelname": {
 			"peers": {
-				"peer0.org1.example.com": {}
+				"peer0.org1name": {}
 			},
 			"connection": {
 				"timeout": {
@@ -36,25 +36,25 @@
 		}
 	},
 	"organizations": {
-		"Org1MSP": {
-			"mspid": "Org1MSP",
+		"org1nameMSP": {
+			"mspid": "org1nameMSP",
 			"adminPrivateKey": {
-				"path": "/fabric-path/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk"
+				"path": "/home/tungvtr90/hyperfabric/blockchain-explorer/organizations/org1name/users/Admin@org1name/msp/keystore/f6aa76db65dcfe9e61c5d9c1d64aaba4a1ad798e06faf064ccb352ec80907535_sk"
 			},
-			"peers": ["peer0.org1.example.com"],
+			"peers": ["peer0.org1name"],
 			"signedCert": {
-				"path": "/fabric-path/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
+				"path": "/home/tungvtr90/hyperfabric/blockchain-explorer/organizations/org1name/users/Admin@org1name/msp/signcerts/Admin@org1name-cert.pem"
 			}
 		}
 	},
 	"peers": {
-		"peer0.org1.example.com": {
+		"peer0.org1name": {
 			"tlsCACerts": {
-				"path": "/fabric-path/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+				"path": "/home/tungvtr90/hyperfabric/blockchain-explorer/organizations/org1name/users/Admin@org1name/tls/ca.crt"
 			},
 			"url": "grpcs://localhost:7051",
 			"grpcOptions": {
-				"ssl-target-name-override": "peer0.org1.example.com"
+				"ssl-target-name-override": "peer0.org1name"
 			}
 		}
 	}

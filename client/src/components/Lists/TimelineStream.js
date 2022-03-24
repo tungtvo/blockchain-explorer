@@ -12,14 +12,19 @@ import { Badge } from 'reactstrap';
 import Timeago from 'react-timeago';
 import find from 'lodash/find';
 import BlockView from '../View/BlockView';
-import blockOpen from '../../static/images/blockOpen.png';
+import blockOpen from '../../static/images/ic_more.svg';
 import { blockListType, notificationsType } from '../types';
+import Icon from '../../static/images/icon.png';
 
 /* istanbul ignore next */
 const styles = theme => {
 	const { type } = theme.palette;
 	const dark = type === 'dark';
 	return {
+		icon: {
+			width: '20px',
+			margin: '2px 2px 0 0'
+		},
 		scrollable: {
 			height: 300,
 			overflowY: 'scroll'
@@ -27,7 +32,7 @@ const styles = theme => {
 		text: {
 			color: dark ? '#ffffff' : undefined,
 			'& .badge-secondary': {
-				backgroundColor: '#5e548f'
+				backgroundColor: '#E85252'
 			}
 		},
 		event: {
@@ -43,7 +48,7 @@ const styles = theme => {
 		},
 		open: {
 			height: 35,
-			marginTop: -10,
+			marginTop: -15,
 			backgroundColor: 'transparent'
 		}
 	};
@@ -82,14 +87,14 @@ export class TimelineStream extends Component {
 							<TimelineEvent
 								key={item.title}
 								title={item.title}
-								icon={<FontAwesome name="cube" />}
+								icon={<img src={Icon} className={classes.icon} alt="icon" />}
 								iconColor="#0D3799"
 								container="card"
 								className={classes.event}
 								titleStyle={{ fontWeight: 'bold' }}
 								style={{ width: '65%' }}
 								cardHeaderStyle={{
-									backgroundColor: '#6283D0',
+									backgroundColor: '#DA3040',
 									fontSize: '13pt'
 								}}
 								contentStyle={{
